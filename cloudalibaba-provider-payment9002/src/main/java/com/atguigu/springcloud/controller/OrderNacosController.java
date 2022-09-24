@@ -17,7 +17,7 @@ public class OrderNacosController {
 
     @GetMapping("/nacos/get/{id}")
     public String getServerPort(@PathVariable("id") Integer id) {
-        Integer decode = Integer.bitCount(id);
+        int decode = Integer.bitCount(id);
         return "The port of this service is " + serverPort + decode;
     }
 
