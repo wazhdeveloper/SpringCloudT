@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 /**
  * @author wzhstart
  * @creat 2022-09-24-15:31
@@ -17,8 +19,8 @@ public class OrderNacosController {
 
     @GetMapping("/nacos/get/{id}")
     public String getServerPort(@PathVariable("id") Integer id) {
-        Integer decode = Integer.bitCount(id);
-        return "The port of this service is " + serverPort + decode;
+        UUID randomUUID = UUID.randomUUID();
+        return "The port of this service is " + serverPort + "，序列号：" + randomUUID;
     }
 
 }
