@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author wzhstart
- * @creat 2022-09-24-19:49
+ * @creat 2022-09-25-10:52
  */
 @RestController
 @RefreshScope
-public class NacosConfigInfoController {
+public class ClientConfigController {
 
     @Value("${config.info}")
     private String ConfigInfo;
 
-    @GetMapping("/config/getInfo")
+    @GetMapping("/nacos/config")
     public String getConfigInfo() {
         return ConfigInfo;
     }
-
 
 }

@@ -5,10 +5,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author wzhstart
- * @creat 2022-09-24-15:31
- */
 @RestController
 public class OrderNacosController {
 
