@@ -2,6 +2,7 @@ package com.atguigu.springcloud.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.atguigu.springcloud.handler.HandleException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,6 +35,12 @@ public class FlowLimitController {
 
     public String fallbackMethod(String p1, String p2, BlockException blockException) {
         log.info("fallback method has been called!");
-        return "fallback method called!";
+        return "fallback method called!" + p1 + p2 + blockException.getRuleLimitApp();
+    }
+
+    @GetMapping("/sentinel/handleException")
+    @SentinelResource(value = "handleException", blockHandlerClass = HandleException.class, blockHandler = "handleException")
+    public String fallbackHandleException() {
+        return "自定义限流处理类，当该方法被限流后，会跳转到HandleException类中调用处理方法";
     }
 }
